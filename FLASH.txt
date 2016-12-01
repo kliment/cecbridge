@@ -1,2 +1,4 @@
+#
+#ensure device is in DFU mode (set BOOT0 high, toggle RESET). Fresh devices are always in DFU mode. Then run:
 sudo dfu-util -D Debug/CECbridge.bin -s 0x08000000:mass-erase:force:leave -a 0 -R -S FFFFFFFEFFFF
 

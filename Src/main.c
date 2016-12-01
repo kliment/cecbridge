@@ -247,7 +247,7 @@ int main(void)
 
 			  }
 			  //parsing command
-			  if(rxcmdbuf[0]=='L'){
+			  if(rxcmdbuf[0]=='L'||rxcmdbuf[0]=='l'){
 				uint8_t c=fromasc(rxcmdbuf[1]);
 				if(c==0xf0 && rxcmdpos>1) c=fromasc(rxcmdbuf[2]);
 				if(c!=0xf0) {
@@ -261,14 +261,32 @@ int main(void)
 					usb_txlen=4;
 				}
 			  }
-			  if(rxcmdbuf[0]=='E'){
+			  if(rxcmdbuf[0]=='P'||rxcmdbuf[0]=='p'){
+			  				uint8_t c=rxcmdbuf[1];
+			  				if(c=='0'||c=='1'){
+			  					if(c=='1')repall=1;
+			  					else repall=0;
+			  					respbuf[0]='L';
+			  					respbuf[1]=c;
+			  					respbuf[3]='\r';
+			  					respbuf[4]='\n';
+			  					usb_txlen=4;
+			  				}else{
+			  					respbuf[0]='F';
+			  					respbuf[0]='P';
+			   									  					respbuf[2]='\r';
+			  									  					respbuf[3]='\n';
+			  									  					usb_txlen=4;
+			  				}
+			  }
+			  if(rxcmdbuf[0]=='E'||rxcmdbuf[0]=='e'){
 				  respbuf[0]='E';
 				  respbuf[1]='\r';
 				  respbuf[2]='\n';
 				  usb_txlen=3;
 
 			  }
-			  if(rxcmdbuf[0]=='T'){
+			  if(rxcmdbuf[0]=='T'||rxcmdbuf[0]=='t'){
 				  int offset=1;
 				  while(rxcmdbuf[offset]==' '){
 					  offset++;
