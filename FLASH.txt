@@ -1,0 +1,2 @@
+sudo dfu-util -D Debug/CECbridge.bin -s 0x08000000:mass-erase:force:leave -a 0 -R -S FFFFFFFEFFFF
+
