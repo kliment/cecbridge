@@ -260,6 +260,15 @@ int main(void)
 					respbuf[3]='\n';
 					usb_txlen=4;
 				}
+				else{
+					respbuf[0]='L';
+					  					respbuf[1]='P';
+					   									  					respbuf[2]='\r';
+					  									  					respbuf[3]='\n';
+					  									  					usb_txlen=4;
+
+
+				}
 			  }
 			  if(rxcmdbuf[0]=='P'||rxcmdbuf[0]=='p'){
 			  				uint8_t c=rxcmdbuf[1];
