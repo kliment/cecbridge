@@ -256,8 +256,8 @@ int main(void)
 					HAL_CEC_Init(&hcec);
 					respbuf[0]='L';
 					respbuf[1]=toasc(c);
-					respbuf[3]='\r';
-					respbuf[4]='\n';
+					respbuf[2]='\r';
+					respbuf[3]='\n';
 					usb_txlen=4;
 				}
 			  }
@@ -268,12 +268,12 @@ int main(void)
 			  					else repall=0;
 			  					respbuf[0]='L';
 			  					respbuf[1]=c;
-			  					respbuf[3]='\r';
-			  					respbuf[4]='\n';
+			  					respbuf[2]='\r';
+			  					respbuf[3]='\n';
 			  					usb_txlen=4;
 			  				}else{
 			  					respbuf[0]='F';
-			  					respbuf[0]='P';
+			  					respbuf[1]='P';
 			   									  					respbuf[2]='\r';
 			  									  					respbuf[3]='\n';
 			  									  					usb_txlen=4;
