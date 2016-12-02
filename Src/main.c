@@ -290,9 +290,15 @@ int main(void)
 			  }
 			  if(rxcmdbuf[0]=='E'||rxcmdbuf[0]=='e'){
 				  respbuf[0]='E';
-				  respbuf[1]='\r';
-				  respbuf[2]='\n';
-				  usb_txlen=3;
+				  respbuf[1]='C';
+				  respbuf[2]='E';
+				  respbuf[3]='C';
+				  respbuf[4]='B';
+				  respbuf[5]='V';
+				  respbuf[6]='1';
+				  respbuf[7]='\r';
+				  respbuf[8]='\n';
+				  usb_txlen=9;
 
 			  }
 			  if(rxcmdbuf[0]=='T'||rxcmdbuf[0]=='t'){
